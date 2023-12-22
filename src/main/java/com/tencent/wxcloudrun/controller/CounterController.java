@@ -1,5 +1,6 @@
 package com.tencent.wxcloudrun.controller;
 
+import com.tencent.wxcloudrun.AreasRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.tencent.wxcloudrun.config.ApiResponse;
@@ -14,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+
 /**
  * counter控制器
  */
 @RestController
 
 public class CounterController {
+
+  @Autowired
+  AreasRepository areasRepository;
 
   final CounterService counterService;
   final Logger logger;
@@ -49,6 +54,11 @@ public class CounterController {
   @GetMapping(value = "/test")
   ApiResponse test(){
     return ApiResponse.ok("In service.");
+  }
+
+  @GetMapping(value = "getArea")
+  Object getArea(){
+    return areasRepository.findAll();
   }
   /**
    * 更新计数，自增或者清零
