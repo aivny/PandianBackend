@@ -48,7 +48,10 @@ public class CounterController {
     return ApiResponse.ok(count);
   }
 
-
+  @GetMapping(value = "/test")
+  ApiResponse test(){
+    return ApiResponse.ok("In service.");
+  }
   /**
    * 更新计数，自增或者清零
    * @param request {@link CounterRequest}
