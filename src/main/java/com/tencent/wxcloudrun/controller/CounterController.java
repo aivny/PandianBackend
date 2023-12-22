@@ -32,11 +32,6 @@ public class CounterController {
   }
 
 
-  @GetMapping(value = "/test")
-  ApiResponse test(){
-    return ApiResponse.ok("In service.");
-  }
-
   /**
    * 获取当前计数
    * @return API response json
