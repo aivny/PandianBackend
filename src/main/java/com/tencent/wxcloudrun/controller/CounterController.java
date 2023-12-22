@@ -56,9 +56,9 @@ public class CounterController {
     return ApiResponse.ok("In service.");
   }
 
-  @GetMapping(value = "getArea")
-  Object getArea(){
-    return areasRepository.findAll();
+  @GetMapping(value = "/getArea")
+  ApiResponse getArea(){
+    return ApiResponse.ok(areasRepository.findAll());
   }
   /**
    * 更新计数，自增或者清零
